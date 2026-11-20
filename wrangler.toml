@@ -1,0 +1,7 @@
+name = "e-ujianmin3mm"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ujian-min3-db"
+database_id = "f4a331e0-703f-43b3-b3d9-c7c079d802c9"
