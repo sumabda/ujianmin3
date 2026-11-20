@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login Guru &amp; Staf · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Masuk ke portal guru dan staf E-Ujian MIN 3 Mukomuko sebagai guru, admin, atau kepala madrasah.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="login" data-layout="blank" data-portal="staf">
+<div class="auth">
+  <div class="auth-brand">
+    <a class="auth-logo" href="index.html">
+      <span class="brand-logo big logo-img"><img src="assets/img/logo-kemenag.svg" alt="Logo Kementerian Agama RI"></span>
+      <div><strong>E-UJIAN</strong><span>MIN 3 Mukomuko</span></div>
+    </a>
+    <div class="auth-brand-mid">
+      <span class="auth-eyebrow">Portal Guru &amp; Staf</span>
+      <h1>Kelola ujian madrasah dengan tertib.</h1>
+      <p>Bank soal, import soal Excel/PDF, jadwal, data siswa, hasil ujian, dan laporan cetak dalam satu portal staf.</p>
+      <div class="auth-features">
+        <div class="auth-feature">
+          <span data-icon="upload"></span>
+          <div><strong>Import soal</strong>Impor dari Excel atau PDF dengan pratinjau dan persetujuan guru.</div>
+        </div>
+        <div class="auth-feature">
+          <span data-icon="users"></span>
+          <div><strong>Data madrasah</strong>Kelola siswa, guru, jadwal ujian, dan akun pengguna.</div>
+        </div>
+        <div class="auth-feature">
+          <span data-icon="printer"></span>
+          <div><strong>Laporan siap cetak</strong>Cetak nilai, daftar peserta, dan berita acara dalam sekali klik.</div>
+        </div>
+      </div>
+    </div>
+    <div class="auth-brand-foot">© 2026 MIN 3 Mukomuko · Kementerian Agama Republik Indonesia<br>Kabupaten Mukomuko, Provinsi Bengkulu</div>
+  </div>
+
+  <div class="auth-panel">
+    <div class="auth-card">
+      <a class="auth-back" href="login.html"><span data-icon="arrow-left"></span> Pilih portal lain</a>
+      <div class="auth-mini-brand"><span class="brand-logo logo-img"><img src="assets/img/logo-kemenag.svg" alt="Logo Kementerian Agama RI"></span> PORTAL GURU &amp; STAF · MIN 3 MUKOMUKO</div>
+      <div class="auth-head">
+        <h2>Masuk Portal Guru &amp; Staf</h2>
+        <p>Guru masuk memakai nama atau NIP masing-masing. Admin/kepala memakai username.</p>
+      </div>
+
+      <div class="role-tabs" id="roleTabs">
+        <button type="button" class="role-tab active" data-role="guru">Guru</button>
+        <button type="button" class="role-tab" data-role="admin">Admin</button>
+        <button type="button" class="role-tab" data-role="kepala">Kepala</button>
+      </div>
+
+      <div id="loginSession"></div>
+
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="field">
+          <label for="username">Nama Guru / NIP / Username</label>
+          <input class="input" id="username" name="username" autocomplete="username" placeholder="Contoh: Rina Marlina atau NIP" required>
+        </div>
+        <div class="field">
+          <label for="password">Kata Sandi</label>
+          <div class="password-wrap">
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required>
+            <button type="button" class="eye-btn" id="togglePassword" aria-label="Tampilkan kata sandi"><span data-icon="eye"></span></button>
+          </div>
+        </div>
+        <p class="form-error" id="loginError" hidden></p>
+        <button class="btn full" type="submit">Masuk <span data-icon="arrow-right"></span></button>
+      </form>
+
+      <div class="demo-box">
+        <div class="demo-head"><strong>Akun demo staf</strong><span id="demoHint">Kata sandi: 123456</span></div>
+        <div class="demo-list" id="demoList"></div>
+      </div>
+
+      <p class="auth-note">Portal ini khusus guru, admin, dan kepala madrasah. Siswa menggunakan portal siswa.</p>
+    </div>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

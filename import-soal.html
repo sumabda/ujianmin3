@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Import Soal · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Impor soal dari Excel (XLSX/XLS) atau PDF/gambar dengan OCR, pratinjau, koreksi, dan persetujuan guru.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="import">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h3>Tujuan Import</h3>
+            <p>Mapel, kelas, dan bobot default dipakai bila tidak tercantum di file.</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="form-grid">
+            <div class="field">
+              <label for="impMapel">Mata Pelajaran</label>
+              <select class="input" id="impMapel"></select>
+            </div>
+            <div class="field">
+              <label for="impKelas">Kelas</label>
+              <select class="input" id="impKelas">
+                <option value="4">Kelas 4</option>
+                <option value="5">Kelas 5</option>
+                <option value="6">Kelas 6</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="impBobot">Bobot Nilai Default</label>
+              <input class="input" id="impBobot" type="number" min="1" max="100" value="10">
+            </div>
+          </div>
+          <p class="hint" style="margin:0">Soal hasil import tidak langsung terbit. Tinjau pratinjau, koreksi bila perlu, lalu setujui untuk menyimpan ke bank soal.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="role-tabs" id="importTabs" style="max-width:640px;margin-bottom:18px">
+            <button type="button" class="role-tab active" data-itab="excel">Import Excel</button>
+            <button type="button" class="role-tab" data-itab="word">Import Word</button>
+            <button type="button" class="role-tab" data-itab="pdf">Import PDF / Gambar</button>
+          </div>
+
+          <div id="panelExcel">
+            <div class="import-actions">
+              <button type="button" class="btn outline" id="downloadTemplateBtn"><span data-icon="download"></span> Download Template Excel</button>
+              <button type="button" class="btn" id="pickExcelBtn"><span data-icon="upload"></span> Pilih File Excel</button>
+              <input type="file" id="excelFile" accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" hidden>
+            </div>
+            <div class="dropzone" id="excelDrop">
+              <span data-icon="upload"></span>
+              <strong>Tarik file .xlsx / .xls ke sini</strong><br>
+              atau klik tombol Pilih File Excel di atas. Sistem membaca isi file secara otomatis.
+            </div>
+            <p class="hint" style="margin:12px 0 0">Kolom template: <b>Nomor Soal, Pertanyaan, Pilihan A, Pilihan B, Pilihan C, Pilihan D, Kunci Jawaban, Jenis Soal, Bobot Nilai, Pembahasan</b>. Kolom Mata Pelajaran dan Kelas opsional.</p>
+          </div>
+
+          <div id="panelWord" hidden>
+            <div class="import-actions">
+              <button type="button" class="btn" id="pickWordBtn"><span data-icon="file-text"></span> Pilih File Word</button>
+              <input type="file" id="wordFile" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+            </div>
+            <div class="dropzone" id="wordDrop">
+              <span data-icon="upload"></span>
+              <strong>Tarik file .docx ke sini</strong><br>
+              Soal bernomor (1., 2., ...) dengan pilihan A–D dibaca otomatis, termasuk kunci jawaban. Kunci dikenali dari "Kunci: B" / "Jawaban: B" di akhir soal, atau dari blok <b>Kunci Jawaban</b> di akhir dokumen (contoh: <i>1. A&nbsp;&nbsp;2. B&nbsp;&nbsp;3. C</i> atau tabel <i>No | Kunci</i>).
+            </div>
+            <div class="import-log" id="wordLog">Belum ada file diproses.</div>
+            <p class="hint" style="margin:12px 0 0">Hanya format <b>.docx</b> yang didukung. File .doc lama harap disimpan ulang sebagai .docx melalui Word/LibreOffice. Soal berupa gambar di dalam Word belum terbaca—gunakan tab PDF / Gambar (OCR).</p>
+          </div>
+
+          <div id="panelPdf" hidden>
+            <div class="import-actions">
+              <button type="button" class="btn" id="pickPdfBtn"><span data-icon="file-text"></span> Pilih PDF</button>
+              <button type="button" class="btn outline" id="pickImageBtn"><span data-icon="image"></span> Pilih Gambar (OCR)</button>
+              <input type="file" id="pdfFile" accept=".pdf,application/pdf" hidden>
+              <input type="file" id="imageFile" accept="image/png,image/jpeg,image/webp" hidden>
+            </div>
+            <div class="dropzone" id="pdfDrop">
+              <span data-icon="scan"></span>
+              <strong>Tarik file PDF atau gambar ke sini</strong><br>
+              PDF berisi teks dibaca langsung. PDF hasil scan / foto akan diproses dengan OCR.
+            </div>
+            <div class="progress" id="ocrProgress" hidden><span></span></div>
+            <div class="import-log" id="pdfLog">Belum ada file diproses.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="previewCard" hidden>
+        <div class="card-head">
+          <div>
+            <h3>Pratinjau Soal</h3>
+            <p id="previewInfo">Periksa setiap baris sebelum menyimpan.</p>
+          </div>
+          <div class="preview-stats" id="previewStats"></div>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="data" style="min-width:760px">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Pertanyaan</th>
+                  <th>Jenis</th>
+                  <th>Kunci</th>
+                  <th>Bobot</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="previewRows"></tbody>
+            </table>
+          </div>
+          <div class="preview-footer">
+            <button type="button" class="btn outline" id="discardBtn">Batalkan</button>
+            <button type="button" class="btn" id="approveBtn"><span data-icon="check-circle"></span> Setujui &amp; Simpan ke Bank Soal</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/vendor/xlsx.full.min.js"></script>
+<script src="assets/vendor/pdf.min.js"></script>
+<script src="assets/vendor/mammoth.browser.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

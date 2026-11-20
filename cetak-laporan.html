@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cetak Laporan · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Cetak nilai, daftar peserta, dan berita acara ujian MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="laporan">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <div class="card no-print">
+        <div class="card-body">
+          <div class="report-controls">
+            <div class="field">
+              <label for="reportType">Jenis Laporan</label>
+              <select class="input" id="reportType">
+                <option value="nilai">Daftar Nilai Siswa</option>
+                <option value="peserta">Daftar Peserta Ujian</option>
+                <option value="berita-acara">Berita Acara Ujian</option>
+                <option value="hasil-siswa">Hasil Pengerjaan Siswa</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="reportClass">Kelas</label>
+              <select class="input" id="reportClass">
+                <option value="all">Semua Kelas (4–6)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="reportSemester">Semester</label>
+              <input class="input" id="reportSemester" disabled>
+            </div>
+            <div class="report-actions">
+              <button class="btn outline" id="reportRefresh" type="button"><span data-icon="refresh"></span> Perbarui</button>
+              <button class="btn outline" id="reportSyncBtn" type="button"><span data-icon="upload"></span> Sinkron</button>
+              <button class="btn" id="reportPrint" type="button"><span data-icon="printer"></span> Cetak</button>
+            </div>
+          </div>
+          <p class="hint" style="margin:13px 0 0">Pratinjau laporan ditampilkan di bawah. Tombol <b>Sinkron</b> mengirim data laporan ini ke Google Sheets; tombol Cetak mencetak atau menyimpan sebagai PDF (A4).</p>
+        </div>
+      </div>
+
+      <div class="paper" id="printArea"></div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

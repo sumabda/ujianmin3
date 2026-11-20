@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Guru · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Data guru dan mata pelajaran MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="data-guru">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <div class="card">
+        <div class="card-body">
+          <div class="toolbar">
+            <div class="search-box">
+              <span data-icon="search"></span>
+              <input class="input" id="guruSearch" type="search" placeholder="Cari nama guru atau NIP...">
+            </div>
+            <select class="input" id="guruMapel" aria-label="Filter mata pelajaran">
+              <option value="all">Semua Mata Pelajaran</option>
+            </select>
+            <span class="spacer"></span>
+            <span class="count-label" id="guruCount"></span>
+            <button class="btn outline sm" id="templateTeacherBtn" type="button"><span data-icon="download"></span> Template</button>
+            <button class="btn outline sm" id="importTeacherBtn" type="button"><span data-icon="upload"></span> Import Excel</button>
+            <input type="file" id="teacherExcelFile" accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" hidden>
+            <button class="btn" id="addTeacherBtn" type="button"><span data-icon="plus"></span> Tambah Guru</button>
+          </div>
+          <div class="teacher-grid" id="teacherGrid"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/vendor/xlsx.full.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

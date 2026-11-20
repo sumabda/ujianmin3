@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Siswa · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Data siswa kelas 4, 5, dan 6 MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="data-siswa">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <div class="card">
+        <div class="card-body">
+          <div class="toolbar">
+            <div class="search-box">
+              <span data-icon="search"></span>
+              <input class="input" id="studentSearch" type="search" placeholder="Cari nama atau NISN...">
+            </div>
+            <select class="input" id="studentKelas" aria-label="Filter kelas">
+              <option value="all">Semua Kelas</option>
+            </select>
+            <select class="input" id="studentStatus" aria-label="Filter status">
+              <option value="all">Semua Status</option>
+              <option value="Aktif">Aktif</option>
+              <option value="Cuti">Cuti</option>
+            </select>
+            <span class="spacer"></span>
+            <span class="count-label" id="studentCount"></span>
+            <button class="btn outline" id="templateStudentBtn" type="button"><span data-icon="download"></span> Template</button>
+            <button class="btn outline" id="importStudentBtn" type="button"><span data-icon="upload"></span> Import Excel</button>
+            <button class="btn" id="addStudentBtn" type="button"><span data-icon="plus"></span> Tambah Siswa</button>
+            <input type="file" id="studentExcelFile" accept=".xlsx,.xls" hidden>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>NISN</th>
+                  <th>Nama Siswa</th>
+                  <th>Kelas</th>
+                  <th>L/P</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="studentRows"></tbody>
+            </table>
+          </div>
+          <div class="pagination" id="studentPagination"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/vendor/xlsx.full.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

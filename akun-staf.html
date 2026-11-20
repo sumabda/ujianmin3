@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akun Saya · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Ubah nama dan kata sandi akun guru, admin, dan kepala madrasah E-Ujian MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="akun-staf">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <div class="settings-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Profil & Kata Sandi Akun</h3>
+              <p>Perbarui nama tampilan dan kata sandi akun Anda sendiri.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <form id="staffAccountForm" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="staffName">Nama Lengkap</label>
+                  <input class="input" id="staffName" maxlength="80" placeholder="Nama lengkap Anda" required>
+                </div>
+                <div class="field">
+                  <label for="staffOld">Kata sandi saat ini</label>
+                  <input class="input" id="staffOld" type="password" autocomplete="current-password" placeholder="Wajib untuk konfirmasi" required>
+                </div>
+                <div class="field">
+                  <label for="staffNew">Kata sandi baru</label>
+                  <input class="input" id="staffNew" type="password" autocomplete="new-password" placeholder="Minimal 6 karakter (opsional)">
+                </div>
+                <div class="field">
+                  <label for="staffConfirm">Ulangi kata sandi baru</label>
+                  <input class="input" id="staffConfirm" type="password" autocomplete="new-password" placeholder="Ulangi kata sandi baru">
+                </div>
+              </div>
+              <p class="form-error" id="staffError" hidden></p>
+              <p class="hint" style="margin:0">Username login tidak dapat diubah. Kosongkan kolom kata sandi baru bila hanya ingin mengubah nama. Kata sandi disimpan di perangkat ini (mode demo).</p>
+              <div class="settings-actions">
+                <button class="btn" type="submit"><span data-icon="save"></span> Simpan Perubahan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="settings-side">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Informasi Akun</h3>
+                <p>Akun yang sedang Anda gunakan.</p>
+              </div>
+              <span class="badge info">Staf</span>
+            </div>
+            <div class="card-body" id="staffAccountInfo"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Tips Keamanan</h3>
+                <p>Menjaga akun pengelola ujian tetap aman.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <ul class="rules">
+                <li><span data-icon="check"></span><span>Gunakan kata sandi yang kuat dan tidak dipakai di akun lain.</span></li>
+                <li><span data-icon="check"></span><span>Jangan bagikan kata sandi kepada siapa pun, termasuk sesama operator.</span></li>
+                <li><span data-icon="check"></span><span>Selalu keluar (logout) setelah selesai memakai perangkat bersama.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

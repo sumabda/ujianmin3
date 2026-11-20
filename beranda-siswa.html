@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beranda Siswa · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Portal siswa E-Ujian MIN 3 Mukomuko: jadwal ujian, pengerjaan ujian, dan hasil belajar.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="beranda-siswa">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <section class="hero">
+        <div>
+          <span class="hero-badge"><span data-icon="graduation"></span> <span id="siswaBanner">Portal Siswa</span></span>
+          <h2>Selamat datang di Portal Siswa</h2>
+          <p>Pantau jadwal ujian, kerjakan ujian secara mandiri, dan lihat hasil belajar Anda dalam satu tempat.</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="ujian.html">Mulai Ujian <span data-icon="arrow-right"></span></a>
+            <a class="btn btn-ghost-light" href="jadwal-ujian.html">Lihat Jadwal</a>
+          </div>
+        </div>
+        <div class="hero-panel" id="siswaNext"></div>
+      </section>
+
+      <section class="stats-grid" id="siswaStats"></section>
+
+      <section class="home-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Jadwal Ujian Terdekat</h3>
+              <p>Ujian kelas Anda pada periode ini</p>
+            </div>
+            <a class="link" href="jadwal-ujian.html">Semua jadwal <span data-icon="arrow-right"></span></a>
+          </div>
+          <div class="card-body" id="siswaSchedule"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Pengumuman</h3>
+              <p>Informasi terbaru seputar ujian</p>
+            </div>
+          </div>
+          <div class="card-body" id="siswaAnnouncements"></div>
+        </div>
+      </section>
+
+      <section class="home-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Nilai Ujian Anda</h3>
+              <p>UAS Ganjil · 5 mata pelajaran</p>
+            </div>
+            <a class="link" href="hasil-ujian.html">Detail nilai <span data-icon="arrow-right"></span></a>
+          </div>
+          <div class="card-body" id="siswaResult"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Akses Cepat</h3>
+              <p>Menu yang sering digunakan</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="quick-grid" id="siswaQuick"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

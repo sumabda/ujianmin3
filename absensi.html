@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Absensi Ujian · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Pencatatan kehadiran siswa pada pelaksanaan ujian MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="absensi">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <h3>Catat Absensi Ujian</h3>
+            <p>Pilih kelas dan mata pelajaran, lalu tandai kehadiran setiap siswa.</p>
+          </div>
+          <span class="badge info" id="absensiRoleBadge"></span>
+        </div>
+        <div class="card-body">
+          <div class="form-grid">
+            <div class="field"><label for="absTanggal">Tanggal Ujian</label><input class="input" type="date" id="absTanggal"></div>
+            <div class="field"><label for="absKelas">Kelas</label><select class="input" id="absKelas"></select></div>
+            <div class="field"><label for="absMapel">Mata Pelajaran</label><select class="input" id="absMapel"></select></div>
+            <div class="field"><label for="absPengawas">Sesi / Pengawas (opsional)</label><input class="input" id="absPengawas" placeholder="Contoh: Sesi 1 · Ahmad Subhan"></div>
+          </div>
+          <div class="result-note" id="absFormInfo" style="margin-top:4px" hidden></div>
+          <div class="table-wrap" style="margin-top:14px">
+            <table class="data">
+              <thead>
+                <tr><th>No</th><th>Siswa</th><th>NISN</th><th>Kehadiran</th></tr>
+              </thead>
+              <tbody id="absStudentRows">
+                <tr><td colspan="4"><div class="empty-state"><span data-icon="users"></span>Pilih kelas untuk menampilkan daftar siswa.</div></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="settings-actions" style="margin-top:14px">
+            <button class="btn outline" id="absAllHadirBtn" type="button"><span data-icon="check-circle"></span> Tandai Semua Hadir</button>
+            <button class="btn" id="absSaveBtn" type="button"><span data-icon="save"></span> Simpan Absensi</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-grid" id="absStats"></section>
+
+      <section class="card" style="margin-top:18px">
+        <div class="card-head">
+          <div>
+            <h3>Riwayat Absensi</h3>
+            <p id="absHistoryNote">Daftar absensi ujian yang telah dicatat.</p>
+          </div>
+          <span class="count-label" id="absHistoryCount"></span>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr><th>No</th><th>Tanggal</th><th>Kelas</th><th>Mata Pelajaran</th><th>Pencatat</th><th>Hadir</th><th>S/I/A</th><th></th></tr>
+              </thead>
+              <tbody id="absHistoryRows">
+                <tr><td colspan="8"><div class="empty-state"><span data-icon="file-text"></span>Belum ada absensi yang dicatat.</div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

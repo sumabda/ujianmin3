@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jadwal Ujian · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Jadwal ujian MIN 3 Mukomuko berdasarkan kelas dan mata pelajaran.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="jadwal">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <div class="next-exam" id="nextExamCard"></div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="toolbar">
+            <select class="input" id="scheduleKelas" aria-label="Filter kelas">
+              <option value="all">Semua Kelas</option>
+            </select>
+            <select class="input" id="scheduleMapel" aria-label="Filter mata pelajaran">
+              <option value="all">Semua Mata Pelajaran</option>
+            </select>
+            <span class="spacer"></span>
+            <span class="count-label" id="scheduleCount"></span>
+          </div>
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Hari &amp; Tanggal</th>
+                  <th>Waktu</th>
+                  <th>Mata Pelajaran</th>
+                  <th>Kelas</th>
+                  <th>Ruang</th>
+                  <th>Pengawas</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="scheduleRows"></tbody>
+            </table>
+          </div>
+          <div class="legend-inline">
+            <b><span class="dot green"></span> Selesai</b>
+            <b><span class="dot gold"></span> Berlangsung</b>
+            <b><span class="dot blue"></span> Akan datang</b>
+            <span>Jadwal dapat berubah sesuai kebijakan madrasah.</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

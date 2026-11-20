@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hasil Ujian · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Nilai, peringkat, dan rekapitulasi hasil ujian MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="hasil">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <section class="stats-grid" id="resultStats"></section>
+
+      <div class="card" id="attemptCard">
+        <div class="card-head" style="flex-wrap:wrap">
+          <div>
+            <h3>Hasil Pengerjaan Siswa</h3>
+            <p id="attemptMeta">Nilai ujian yang dikumpulkan dari perangkat siswa (tersimpan lokal di perangkat ini).</p>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <span class="badge" id="attemptCount">0 hasil</span>
+            <a class="btn outline sm" id="attemptPrintBtn" href="cetak-laporan.html#jenis=hasil-siswa"><span data-icon="printer"></span> Cetak</a>
+            <button class="btn outline sm" type="button" id="attemptSyncBtn"><span data-icon="upload"></span> Sinkron</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="data" style="min-width:760px">
+              <thead>
+                <tr>
+                  <th>Waktu Kumpul</th>
+                  <th>Siswa</th>
+                  <th>Kelas</th>
+                  <th>Mata Pelajaran</th>
+                  <th>Benar PG</th>
+                  <th>Nilai PG</th>
+                  <th>Uraian</th>
+                  <th class="no-print">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="attemptRows"></tbody>
+            </table>
+          </div>
+          <p class="hint" id="attemptHint" style="margin:12px 0 0">Data antar perangkat tidak otomatis berpindah. Di perangkat siswa, tekan <b>Sinkron Nilai</b> pada halaman hasil ujian agar nilainya langsung masuk ke Google Sheets (sheet <b>Hasil Siswa</b>).</p>
+        </div>
+      </div>
+
+      <div class="home-grid">
+        <div class="card">
+          <div class="card-head" style="flex-wrap:wrap">
+            <div>
+              <h3>Rekapitulasi Nilai UAS</h3>
+              <p id="resultMeta"></p>
+            </div>
+            <div id="resultExport" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+              <select class="input" id="resultKelas" aria-label="Filter kelas" style="width:auto;min-width:150px">
+                <option value="all">Semua Kelas 6</option>
+              </select>
+              <button class="btn sm" type="button" id="resultSyncBtn"><span data-icon="refresh"></span> Sinkron</button>
+              <button class="btn outline sm" type="button" id="resultXlsxBtn"><span data-icon="download"></span> Excel</button>
+              <button class="btn outline sm" type="button" id="resultCsvBtn"><span data-icon="file-text"></span> CSV</button>
+              <button class="btn sm" type="button" id="resultSheetsBtn"><span data-icon="copy"></span> Salin ke Google Sheets</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-wrap">
+              <table class="data" style="min-width:900px">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Nama Siswa</th>
+                    <th>Kelas</th>
+                    <th>MTK</th>
+                    <th>BIN</th>
+                    <th>IPA</th>
+                    <th>B. Arab</th>
+                    <th>Fiqih</th>
+                    <th>Rata-rata</th>
+                    <th>Predikat</th>
+                    <th class="no-print">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="resultRows"></tbody>
+              </table>
+            </div>
+            <p class="hint" id="resultExportHint" style="margin:12px 0 0">Tombol <b>Sinkron</b> mengirim rekap nilai ke Google Sheets melalui Apps Script Web App (panduan ada di dialog Sinkron). Tombol <b>Salin ke Google Sheets</b> menyalin tabel siap tempel (Ctrl+V) di spreadsheet.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div><h3>Peringkat Teratas</h3><p>Berdasarkan rata-rata nilai</p></div></div>
+          <div class="card-body">
+            <div class="podium" id="podium"></div>
+            <div class="result-subhead"><span>Sebaran Predikat</span><span class="muted">Jumlah siswa</span></div>
+            <div id="distribution"></div>
+            <div class="result-note" style="margin:14px 0 0">
+              <span data-icon="info"></span>
+              <span>Predikat: A ≥ 90, B 80–89, C 70–79, D &lt; 70. Nilai berasal dari UAS Ganjil 2026/2027.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/vendor/xlsx.full.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

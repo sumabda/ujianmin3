@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pengaturan · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Pengaturan tahun pelajaran, semester, identitas madrasah, dan akun pengguna E-Ujian MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="pengaturan">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <div class="settings-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Identitas & Tahun Pelajaran</h3>
+              <p>Pengaturan ini digunakan pada jadwal, hasil, dan laporan cetak.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <form id="settingsForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="setNama">Nama Madrasah</label>
+                  <input class="input" id="setNama" required maxlength="80">
+                </div>
+                <div class="field">
+                  <label for="setNpsn">NPSN</label>
+                  <input class="input" id="setNpsn" required inputmode="numeric" maxlength="12">
+                </div>
+                <div class="field">
+                  <label for="setKepala">Kepala Madrasah</label>
+                  <input class="input" id="setKepala" required maxlength="80">
+                </div>
+                <div class="field">
+                  <label for="setTahun">Tahun Pelajaran</label>
+                  <select class="input" id="setTahun">
+                    <option value="2025/2026">2025/2026</option>
+                    <option value="2026/2027">2026/2027</option>
+                    <option value="2027/2028">2027/2028</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="setSemester">Semester</label>
+                  <select class="input" id="setSemester">
+                    <option value="Ganjil">Ganjil</option>
+                    <option value="Genap">Genap</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="setKkm">KKM</label>
+                  <input class="input" id="setKkm" type="number" min="0" max="100" required>
+                </div>
+                <div class="field">
+                  <label for="setDurasi">Durasi Ujian (menit)</label>
+                  <input class="input" id="setDurasi" type="number" min="5" max="180" required>
+                </div>
+              </div>
+
+              <div class="toggle-row">
+                <div class="toggle-info">
+                  <strong>Acak urutan soal</strong>
+                  <span>Tampilkan soal dengan urutan berbeda untuk setiap peserta.</span>
+                </div>
+                <label class="switch"><input type="checkbox" id="setAcak"><span class="slider"></span></label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-info">
+                  <strong>Tampilkan hasil langsung</strong>
+                  <span>Perlihatkan nilai objektif segera setelah ujian dikumpulkan.</span>
+                </div>
+                <label class="switch"><input type="checkbox" id="setHasil"><span class="slider"></span></label>
+              </div>
+
+              <div class="settings-actions">
+                <button class="btn" type="submit"><span data-icon="save"></span> Simpan Pengaturan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Pengaturan Cetak Laporan</h3>
+              <p>Logo dan alamat madrasah pada kop laporan.</p>
+            </div>
+            <a class="link" href="cetak-laporan.html">Buka laporan <span data-icon="arrow-right"></span></a>
+          </div>
+          <div class="card-body">
+            <form id="reportSettingsForm">
+              <div class="logo-upload">
+                <div class="logo-preview" id="logoPreview"></div>
+                <div class="logo-info">
+                  <strong>Logo Madrasah</strong>
+                  <p class="hint">Tampil pada kop semua jenis laporan. Format PNG/JPG/WebP, maksimal 500 KB.</p>
+                  <div class="import-actions" style="margin:0">
+                    <button type="button" class="btn outline sm" id="pickLogoBtn"><span data-icon="upload"></span> Unggah Logo</button>
+                    <button type="button" class="btn ghost sm" id="removeLogoBtn">Hapus Logo</button>
+                  </div>
+                  <input type="file" id="logoFile" accept="image/png,image/jpeg,image/webp" hidden>
+                </div>
+              </div>
+              <div class="field">
+                <label for="setAlamat">Alamat Madrasah</label>
+                <textarea class="input" id="setAlamat" rows="3" maxlength="200" placeholder="Jalan, kelurahan, kecamatan, kabupaten, provinsi"></textarea>
+              </div>
+              <div class="settings-actions">
+                <button class="btn" type="submit"><span data-icon="save"></span> Simpan Pengaturan Cetak</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="settings-side">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Akun Pengguna</h3>
+                <p>Kelola status akun siswa, guru, admin, dan kepala madrasah.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-wrap table-scroll">
+                <table class="data" style="min-width:480px">
+                  <thead>
+                    <tr>
+                      <th>Peran</th>
+                      <th>Akun</th>
+                      <th>Status</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="accountRows"></tbody>
+                </table>
+              </div>
+              <p class="hint" style="margin:12px 0 0">Kata sandi awal akun demo: <b>123456</b>. Gunakan tombol kunci untuk mengubah kata sandi akun.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Backup & Pindah Data</h3>
+                <p>Ekspor dan impor data antar perangkat.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="hint" style="margin:0 0 12px">Gunakan untuk memindahkan soal, siswa, guru, pengaturan, dan akun ke perangkat lain (misalnya dari laptop admin ke HP siswa).</p>
+              <div class="import-actions" style="margin:0">
+                <button class="btn outline sm" id="exportDataBtn" type="button"><span data-icon="download"></span> Ekspor Data (JSON)</button>
+                <button class="btn outline sm" id="importDataBtn" type="button"><span data-icon="upload"></span> Impor Data</button>
+              </div>
+              <input type="file" id="importDataFile" accept="application/json,.json" hidden>
+              <p class="hint" id="dataTransferInfo" style="margin:10px 0 0">Belum ada ekspor pada sesi ini.</p>
+            </div>
+          </div>
+
+          <div class="card danger-card">
+            <div class="card-head">
+              <div>
+                <h3>Reset Data Demo</h3>
+                <p>Kembalikan data contoh ke kondisi awal.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="hint" style="margin:0">Menghapus siswa tambahan, soal baru, percobaan ujian, sesi login, dan perubahan pengaturan pada perangkat ini.</p>
+              <div class="danger-actions">
+                <button class="btn danger" id="resetDemoBtn" type="button"><span data-icon="trash"></span> Reset Data Demo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

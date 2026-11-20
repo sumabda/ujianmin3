@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akun Saya · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Ubah kata sandi akun siswa E-Ujian MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="akun">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <div class="settings-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Ubah Kata Sandi</h3>
+              <p>Kata sandi baru hanya berlaku untuk akun siswa Anda sendiri.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <form id="studentPwdForm" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="spwdOld">Kata sandi saat ini</label>
+                  <input class="input" id="spwdOld" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi saat ini" required>
+                </div>
+                <div class="field">
+                  <label for="spwdNew">Kata sandi baru</label>
+                  <input class="input" id="spwdNew" type="password" autocomplete="new-password" placeholder="Minimal 6 karakter" required>
+                </div>
+                <div class="field">
+                  <label for="spwdConfirm">Ulangi kata sandi baru</label>
+                  <input class="input" id="spwdConfirm" type="password" autocomplete="new-password" placeholder="Ulangi kata sandi baru" required>
+                </div>
+              </div>
+              <p class="form-error" id="spwdError" hidden></p>
+              <p class="hint" style="margin:0">Gunakan minimal 6 karakter dan hindari kata sandi yang mudah ditebak. Kata sandi disimpan di perangkat ini (mode demo).</p>
+              <div class="settings-actions">
+                <button class="btn" type="submit"><span data-icon="key"></span> Simpan Kata Sandi</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="settings-side">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Informasi Akun</h3>
+                <p>Akun yang sedang Anda gunakan.</p>
+              </div>
+              <span class="badge success">Siswa</span>
+            </div>
+            <div class="card-body" id="accountInfo"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h3>Tips Keamanan</h3>
+                <p>Menjaga akun ujian tetap aman.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <ul class="rules">
+                <li><span data-icon="check"></span><span>Jangan bagikan kata sandi kepada teman atau siapa pun.</span></li>
+                <li><span data-icon="check"></span><span>Gunakan kata sandi yang tidak mudah ditebak.</span></li>
+                <li><span data-icon="check"></span><span>Selalu keluar (logout) setelah selesai memakai perangkat bersama.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login Siswa · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Masuk ke portal siswa E-Ujian MIN 3 Mukomuko untuk mengerjakan ujian dan melihat hasil.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="login" data-layout="blank" data-portal="siswa">
+<div class="auth">
+  <div class="auth-brand">
+    <a class="auth-logo" href="index.html">
+      <span class="brand-logo big logo-img"><img src="assets/img/logo-kemenag.svg" alt="Logo Kementerian Agama RI"></span>
+      <div><strong>E-UJIAN</strong><span>MIN 3 Mukomuko</span></div>
+    </a>
+    <div class="auth-brand-mid">
+      <span class="auth-eyebrow">Portal Siswa</span>
+      <h1>Kerjakan ujian dengan tenang dan jujur.</h1>
+      <p>Di portal siswa Anda dapat melihat jadwal, mengerjakan ujian sesuai waktu, dan melihat hasil belajar pribadi.</p>
+      <div class="auth-features">
+        <div class="auth-feature">
+          <span data-icon="calendar"></span>
+          <div><strong>Jadwal pribadi</strong>Lihat jadwal ujian kelas Anda lengkap dengan ruang dan pengawas.</div>
+        </div>
+        <div class="auth-feature">
+          <span data-icon="monitor"></span>
+          <div><strong>Ujian mandiri</strong>Jawaban tersimpan otomatis dan waktu berjalan otomatis.</div>
+        </div>
+        <div class="auth-feature">
+          <span data-icon="bar-chart"></span>
+          <div><strong>Hasil belajar</strong>Lihat nilai, predikat, dan peringkat Anda secara pribadi.</div>
+        </div>
+      </div>
+    </div>
+    <div class="auth-brand-foot">© 2026 MIN 3 Mukomuko · Kementerian Agama Republik Indonesia<br>Kabupaten Mukomuko, Provinsi Bengkulu</div>
+  </div>
+
+  <div class="auth-panel">
+    <div class="auth-card">
+      <a class="auth-back" href="login.html"><span data-icon="arrow-left"></span> Pilih portal lain</a>
+      <div class="auth-mini-brand"><span class="brand-logo logo-img"><img src="assets/img/logo-kemenag.svg" alt="Logo Kementerian Agama RI"></span> PORTAL SISWA · MIN 3 MUKOMUKO</div>
+      <div class="auth-head">
+        <h2>Masuk Portal Siswa</h2>
+        <p>Masuk dengan NISN atau nama lengkap Anda. Kata sandi awal: 123456.</p>
+      </div>
+
+      <div class="role-tabs" id="roleTabs">
+        <button type="button" class="role-tab active" data-role="siswa">Siswa</button>
+      </div>
+
+      <div id="loginSession"></div>
+
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="field">
+          <label for="username">NISN atau Nama Siswa</label>
+          <input class="input" id="username" name="username" autocomplete="username" placeholder="Contoh: 0061234521 atau Vina Oktaviani" required>
+        </div>
+        <div class="field">
+          <label for="password">Kata Sandi</label>
+          <div class="password-wrap">
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required>
+            <button type="button" class="eye-btn" id="togglePassword" aria-label="Tampilkan kata sandi"><span data-icon="eye"></span></button>
+          </div>
+        </div>
+        <p class="form-error" id="loginError" hidden></p>
+        <button class="btn full" type="submit">Masuk <span data-icon="arrow-right"></span></button>
+      </form>
+
+      <div class="demo-box">
+        <div class="demo-head"><strong>Akun demo siswa</strong><span id="demoHint">Kata sandi: 123456</span></div>
+        <div class="demo-list" id="demoList"></div>
+      </div>
+
+      <p class="auth-note">Dengan masuk, Anda menyetujui tata tertib penggunaan sistem ujian madrasah. Hubungi operator madrasah apabila mengalami kendala.</p>
+    </div>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

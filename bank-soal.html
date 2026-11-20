@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Soal · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Pengelolaan bank soal pilihan ganda dan uraian MIN 3 Mukomuko.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="bank-soal">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <section class="stats-grid three" id="bankStats"></section>
+
+      <div class="card" style="margin-top:18px">
+        <div class="card-body">
+          <div class="toolbar">
+            <div class="search-box">
+              <span data-icon="search"></span>
+              <input class="input" id="soalSearch" type="search" placeholder="Cari pertanyaan...">
+            </div>
+            <select class="input" id="soalMapel" aria-label="Filter mapel">
+              <option value="all">Semua Mapel</option>
+            </select>
+            <select class="input" id="soalKelas" aria-label="Filter kelas">
+              <option value="all">Semua Kelas</option>
+            </select>
+            <select class="input" id="soalTipe" aria-label="Filter tipe soal">
+              <option value="all">Semua Tipe</option>
+              <option value="PG">Pilihan Ganda</option>
+              <option value="Uraian">Uraian</option>
+            </select>
+            <span class="spacer"></span>
+            <span class="count-label" id="soalCount"></span>
+            <button class="btn" id="addSoalBtn" type="button"><span data-icon="plus"></span> Tambah Soal</button>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Pertanyaan</th>
+                  <th>Mapel</th>
+                  <th>Kelas</th>
+                  <th>Tipe</th>
+                  <th>Kunci</th>
+                  <th>Bobot</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="soalRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

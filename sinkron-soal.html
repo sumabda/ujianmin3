@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sinkronisasi Soal · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Sinkronkan soal ujian terbaru dari bank soal admin dan guru ke perangkat siswa.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="sinkron">
+<div class="app">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main">
+    <header id="topbar" class="topbar"></header>
+    <main class="content">
+      <section class="stats-grid three" id="syncStats"></section>
+
+      <div class="home-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Sinkronisasi Soal Ujian</h3>
+              <p id="syncMeta">Menarik soal terbaru dari bank soal admin dan guru.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="result-note" style="margin:0 0 14px">
+              <span data-icon="info"></span>
+              <span>Soal berasal dari bank soal yang disusun guru/admin. Siswa tidak dapat mengubah soal. Sinkronkan ulang bila admin menambah atau memperbarui soal.</span>
+            </div>
+            <div class="form-grid" style="margin-bottom:14px">
+              <div class="field">
+                <label for="syncMapel">Mata Pelajaran</label>
+                <select class="input" id="syncMapel"></select>
+              </div>
+              <div class="field">
+                <label for="syncKelas">Kelas</label>
+                <input class="input" id="syncKelas" disabled>
+              </div>
+            </div>
+            <div class="import-actions" style="margin-bottom:0">
+              <button class="btn" id="syncNowBtn" type="button"><span data-icon="refresh"></span> Sinkronkan Soal Sekarang</button>
+              <a class="btn outline" id="syncGoExam" href="ujian.html" hidden>Buka Pelaksanaan Ujian</a>
+            </div>
+            <div class="import-log" id="syncLog">Belum ada sinkronisasi.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3>Status Akun & Sumber Soal</h3>
+              <p>Informasi peserta dan paket soal tersinkron.</p>
+            </div>
+          </div>
+          <div class="card-body" id="syncAccount"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h3>Daftar Soal dari Admin</h3>
+            <p id="syncTableInfo">Pratinjau soal yang tersedia untuk kelas Anda.</p>
+          </div>
+          <span class="badge" id="syncTableCount"></span>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="data" style="min-width:760px">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Pertanyaan</th>
+                  <th>Mapel</th>
+                  <th>Jenis</th>
+                  <th>Bobot</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="syncRows"></tbody>
+            </table>
+          </div>
+          <p class="hint" style="margin:12px 0 0">Status <b>Tersinkron</b> berarti soal sudah masuk ke perangkat Anda dan siap dipakai pada halaman Pelaksanaan Ujian.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilih Portal · E-Ujian MIN 3 Mukomuko</title>
+<meta name="description" content="Pilih portal E-Ujian MIN 3 Mukomuko: portal siswa atau portal guru, admin, dan kepala madrasah.">
+<meta name="theme-color" content="#0f7a63">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="portal" data-layout="blank">
+<div class="auth">
+  <div class="auth-brand">
+    <a class="auth-logo" href="index.html">
+      <span class="brand-logo big logo-img"><img src="assets/img/logo-kemenag.svg" alt="Logo Kementerian Agama RI"></span>
+      <div><strong>E-UJIAN</strong><span>MIN 3 Mukomuko</span></div>
+    </a>
+    <div class="auth-brand-mid">
+      <span class="auth-eyebrow">Sistem Informasi Ujian Madrasah</span>
+      <h1>Satu madrasah, dua portal terpisah.</h1>
+      <p>Portal siswa untuk mengerjakan ujian dan melihat hasil. Portal guru &amp; staf untuk mengelola bank soal, jadwal, nilai, dan laporan.</p>
+      <div class="auth-features">
+        <div class="auth-feature">
+          <span data-icon="monitor"></span>
+          <div><strong>Portal Siswa</strong>Jadwal, pengerjaan ujian, dan hasil belajar pribadi.</div>
+        </div>
+        <div class="auth-feature">
+          <span data-icon="shield"></span>
+          <div><strong>Portal Guru &amp; Staf</strong>Bank soal, import soal, data siswa, laporan, dan pengaturan.</div>
+        </div>
+      </div>
+    </div>
+    <div class="auth-brand-foot">© 2026 MIN 3 Mukomuko · Kementerian Agama Republik Indonesia<br>Kabupaten Mukomuko, Provinsi Bengkulu</div>
+  </div>
+
+  <div class="auth-panel">
+    <div class="auth-card">
+      <a class="auth-back" href="index.html"><span data-icon="arrow-left"></span> Kembali ke beranda</a>
+      <div class="auth-mini-brand"><span class="brand-logo logo-img"><img src="assets/img/logo-kemenag.svg" alt="Logo Kementerian Agama RI"></span> E-UJIAN MIN 3 MUKOMUKO</div>
+      <div class="auth-head">
+        <h2>Pilih Portal</h2>
+        <p>Website siswa dan website guru/staf dipisahkan. Pilih portal sesuai peran Anda.</p>
+      </div>
+
+      <div class="portal-options">
+        <a class="portal-option" href="login-siswa.html">
+          <span class="portal-icon"><span data-icon="monitor"></span></span>
+          <span class="portal-text"><strong>Portal Siswa</strong><span>Masuk sebagai siswa untuk melihat jadwal, mengerjakan ujian, dan hasil belajar.</span></span>
+          <span data-icon="arrow-right"></span>
+        </a>
+        <a class="portal-option" href="login-staf.html">
+          <span class="portal-icon gold"><span data-icon="shield"></span></span>
+          <span class="portal-text"><strong>Portal Guru &amp; Staf</strong><span>Masuk sebagai guru, admin, atau kepala madrasah untuk mengelola ujian.</span></span>
+          <span data-icon="arrow-right"></span>
+        </a>
+      </div>
+
+      <div class="auth-note" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between;background:#f7faf8;border:1px solid var(--line);border-radius:12px;padding:10px 12px">
+        <div style="min-width:0">
+          <strong style="display:block;font-size:11.5px">Tautan khusus login siswa</strong>
+          <span id="studentLoginUrl" style="font-size:11px;color:var(--muted);word-break:break-all">login-siswa.html</span>
+        </div>
+        <button type="button" class="btn outline sm" id="copyStudentLogin"><span data-icon="copy"></span> Salin tautan</button>
+      </div>
+
+      <p class="auth-note">Akun demo tersedia pada masing-masing portal. Kata sandi awal semua akun: <b>123456</b>.</p>
+    </div>
+  </div>
+</div>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
